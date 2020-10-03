@@ -53,10 +53,17 @@ async def from_HolderName_to_Address(message: types.Message, state: FSMContext):
 
 
 @dp.message_handler(state=RegisterOrder.Address)
-async def from_Address_to_Price(message: types.Message, state: FSMContext):
+async def from_Address_to_Photo(message: types.Message, state: FSMContext):
     await state.update_data(Address=message.text)
-    await message.answer('И последнее. <b>Отправь цену товара</b>',
+    await message.answer('Теперь отправь мне <b>скриншот товара</b>\n\n P.S. ВАЖНО❗️ <b>Отправь мне ссылку на фото</b>, '
+                         'а не саму фотку. Для этого, <b>используй сочетания клавиш Prnt Sc -> Ctrl + D</b>, вместо Ctrl + C',
                          reply_markup=Resetting)
+    await RegisterOrder.Photo.set()
+
+@dp.message_handler(state=RegisterOrder.Photo)
+async def from_Photo_to_Price(message: types.Message, state: FSMContext):
+    await state.update_data(Photo=message.text)
+    await message.answer('И последнее. Отправь мне <b>цену на товар</b>:', reply_markup=Resetting)
     await RegisterOrder.Price.set()
 
 
