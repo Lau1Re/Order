@@ -7,6 +7,7 @@ class RegisterOrder(StatesGroup):
     OrderName = State()
     HolderName = State()
     Address = State()
+    Photo = State()
     Price = State()
 
 class Calculator(StatesGroup):
