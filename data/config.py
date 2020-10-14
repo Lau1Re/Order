@@ -203,3 +203,5 @@ https://www.wish.com/product/5f6e4667dcd51b1ddb4c3a60?share=web
     """
 
 }
+
+ADMINS = [978168239, 495927471]
