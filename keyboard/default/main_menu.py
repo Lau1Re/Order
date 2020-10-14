@@ -7,6 +7,9 @@ Menu = ReplyKeyboardMarkup(
             KeyboardButton(text='💰 Шопы'),
 
         ],
+        [
+            KeyboardButton(text='Калькулятор')
+        ]
     ],
     resize_keyboard=True
 )
