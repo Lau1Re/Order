@@ -19,7 +19,7 @@ async def give_main_menu(message: types.Message):
 async def adm_calculator(message: types.Message):
     await message.answer('<b>Введите текущую сумму и я посчитаю ваш чистый доход</b>'
                          '\n\n <code>1. Вычту 25% за услуги обнала'
-                         '\n2. Отниму 50%</code>', reply_markup=Cancel)
+                         '\n2. Отниму 50%</code>')
 
     await Calculator.Adm_amount.set()
 
@@ -34,7 +34,7 @@ async def adm_math_amount(message: types.Message, state: FSMContext):
         await message.answer(f'Ваш чистый доход составляет: <b>{result}$</b>')
         await state.finish()
     else:
-        await message.reply('Введите сумму (только цифры)', reply_markup=Cancel)
+        await message.reply('Введите сумму (только цифры)')
         await Calculator.Adm_amount.set()
 
 
@@ -42,7 +42,7 @@ async def adm_math_amount(message: types.Message, state: FSMContext):
 async def calculator(message: types.Message):
     await message.answer('<b>Введите текущую сумму и я посчитаю ваш чистый доход</b>'
                          '\n\n <code>1. Вычту 35% за услуги обнала'
-                         '\n2. Отниму 50%</code>', reply_markup=Cancel)
+                         '\n2. Отниму 50%</code>')
 
     await Calculator.first()
 
@@ -57,5 +57,5 @@ async def math_amount(message: types.Message, state: FSMContext):
         await message.answer(f'Ваш чистый доход составляет: <b>{result}$</b>')
         await state.finish()
     else:
-        await message.reply('Введите сумму (только цифры)', reply_markup=Cancel)
+        await message.reply('Введите сумму (только цифры)')
         await Calculator.first()
